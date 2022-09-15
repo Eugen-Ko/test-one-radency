@@ -1,0 +1,23 @@
+.headerContainer {
+  max-width: 1024px;
+  height: 40px;
+  padding: 5px 12px;
+  border-radius: 5px;
+  background-color: var(--headerBg);
+  margin: 30px auto 10px auto;
+  display: grid;
+  grid-template-columns: 30px 3fr 2fr 2fr 2fr 3fr 24px 24px 24px;
+  grid-template-rows: 30px;
+}
+
+.buttonCreate {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid var(--itemIconBg);
+  background-color: var(--itemBg);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--itemBg);
+  }
+}

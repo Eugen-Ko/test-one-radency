@@ -1,4 +1,4 @@
-import { app } from './javascript/app';
-import './styles/styles.css';
+import { app } from './js/app';
+import './sass/index.scss';
 
 app();
