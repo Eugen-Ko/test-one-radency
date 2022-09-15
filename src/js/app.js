@@ -10,11 +10,11 @@ export const app = () => {
 
   const tableToDo = createEl({ tagName: 'div', className: 'table', attributes: { id: 'tableTodo' } });
   tableToDo.insertAdjacentHTML('beforeend', listToDo());
-  const tableStat = createEl({ tagName: 'div', className: 'tableStat' });
+  const tableStat = createEl({ tagName: 'div', className: 'table' });
   tableStat.insertAdjacentHTML('beforeend', listStat());
 
   const rootEl = document.getElementById('root');
-  rootEl.insertAdjacentHTML('afterbegin', [headerToDo().outerHTML, tableToDo.outerHTML, button().outerHTML, headerStat().outerHTML, tableStat].join(''));
+  rootEl.insertAdjacentHTML('afterbegin', [headerToDo().outerHTML, tableToDo.outerHTML, button().outerHTML, headerStat().outerHTML, tableStat.outerHTML].join(''));
 
   return rootEl;
 }
