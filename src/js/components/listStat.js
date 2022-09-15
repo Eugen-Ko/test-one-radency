@@ -1,6 +1,8 @@
-import { initialToDo } from '../../assets/initialToDo';
 import { elementStat } from './elementStat';
+import { readLocalStorage } from '../services/readLocalStorage';
+import { calcStat } from '../services/calcStat';
 
 export const listStat = () => {
-  return initialToDo.map(el => { return elementStat(el).outerHTML }).join('');
+  const list = calcStat(readLocalStorage())
+  return list.map(el => { return elementStat(el).outerHTML }).join('');
 }

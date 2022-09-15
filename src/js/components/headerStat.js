@@ -1,18 +1,17 @@
 import { createEl } from '../helpers/createEl';
+import { headerStatColumn } from '../../assets/initWords';
 
 export const headerStat = () => {
 
-  const emptyDiv = createEl({ tagName: 'div' });
-  const nameCategory = createEl({ tagName: 'p', className: 'headerText' });
-  nameCategory.insertAdjacentHTML('beforeend', 'Name Category');
-  const active = createEl({ tagName: 'p', className: 'headerText' });
-  active.insertAdjacentHTML('beforeend', 'Active');
-  const archived = createEl({ tagName: 'p', className: 'headerText' });
-  archived.insertAdjacentHTML('beforeend', 'Archived');
+  const columns = headerStatColumn.map(el => {
+    const temp = createEl({ tagName: 'p', className: 'headerText' });
+    temp.insertAdjacentHTML('beforeend', el)
+    return temp.outerHTML
+  }).join('');
 
-  const headerStatContainer = createEl({ tagName: 'div', className: 'headerContainer' });
+  const headerStatContainer = createEl({ tagName: 'div', className: 'headerContainer headerContainer__stat' });
 
-  headerStatContainer.insertAdjacentHTML('beforeend', [emptyDiv.outerHTML, nameCategory.outerHTML, emptyDiv.outerHTML, active.outerHTML, emptyDiv.outerHTML, archived.outerHTML, emptyDiv.outerHTML, emptyDiv.outerHTML, emptyDiv.outerHTML].join(''));
+  headerStatContainer.insertAdjacentHTML('beforeend', columns);
 
   return headerStatContainer;
 }

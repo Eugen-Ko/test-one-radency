@@ -1,7 +1,7 @@
-export const headerToDoColumn = ['Name', 'Created', 'Category', 'Content', 'Dates'];
-export const headerStatColumn = ['Note Category', 'Active', 'Archive'];
+export const headerToDoColumn = ['', 'Name', 'Created', 'Category', 'Content', 'Dates', ''];
+export const headerStatColumn = ['', 'Note Category', '', 'Active', '', 'Archive', '', '', ''];
 
-export const category = {
+export const categories = {
   task: 'Task',
   idea: 'Idea',
   quote: 'Quote',

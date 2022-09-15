@@ -5,7 +5,7 @@ export const initialToDo = [
     category: "Task",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: false,
     id: "1",
   },
   {
@@ -14,7 +14,7 @@ export const initialToDo = [
     category: "Quote",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: true,
     id: "2",
   },
   {
@@ -23,7 +23,7 @@ export const initialToDo = [
     category: "Random Thought",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: false,
     id: "3",
   },
   {
@@ -32,7 +32,7 @@ export const initialToDo = [
     category: "Task",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: true,
     id: "4",
   },
   {
@@ -41,7 +41,7 @@ export const initialToDo = [
     category: "Quote",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: false,
     id: "5",
   },
   {
@@ -50,7 +50,7 @@ export const initialToDo = [
     category: "Idea",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: false,
     id: "6",
   },
   {
@@ -59,7 +59,7 @@ export const initialToDo = [
     category: "Task",
     content: "milk, water",
     expDate: "",
-    statArch: false,
+    isArch: false,
     id: "7",
   },
 ];

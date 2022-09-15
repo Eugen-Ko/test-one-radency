@@ -22,6 +22,9 @@
     background-color: var(--itemBg);
     margin: 0;
   }
+  &__stat {
+    margin-top: 0;
+  }
 }
 
 .headerText {
@@ -87,6 +90,9 @@
   grid-template-rows: 40px;
   row-gap: 10px;
   margin-bottom: 20px;
+  &__stat {
+    height: 190px;
+  }
 }
 
 .elementText {

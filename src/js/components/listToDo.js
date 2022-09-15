@@ -1,6 +1,7 @@
-import { initialToDo } from '../../assets/initialToDo';
 import { elementToDo } from './elementToDo';
+import { readLocalStorage } from '../services/readLocalStorage';
 
 export const listToDo = () => {
-  return initialToDo.map(el => { return elementToDo(el).outerHTML }).join('');
+  return readLocalStorage().filter((el) => !el.isArch)
+    .map(el => { return elementToDo(el).outerHTML }).join('');
 }
