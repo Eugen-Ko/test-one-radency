@@ -5,7 +5,7 @@ export const calcStat = (data) => {
     return {
       category: category,
       active: data.filter(el => (el.category === category && !el.isArch)).length,
-      archived: data.filter(el => (el.category === category && el.isArch)).length,
+      archive: data.filter(el => (el.category === category && el.isArch)).length,
     }
   })
 }
