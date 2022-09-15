@@ -117,3 +117,13 @@
     fill: currentColor;
   }
 }
+
+.activeArch {
+  color: #ffffff;
+  background-color: var(--headerBg);
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  width: 40px;
+}
