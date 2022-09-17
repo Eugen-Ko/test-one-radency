@@ -32,7 +32,6 @@ const editEl = (id) => {
   modal.classList.remove('modal__hidden');
 }
 
-
 const archiveEl = (id, category) => {
   const newList = readLocalStorage().map(el => el.id === id ? { ...el, isArch: true } : el)
   const newStat = calcStat(newList).find(el => el.category === category)

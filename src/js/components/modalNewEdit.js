@@ -44,6 +44,4 @@ export const modalNewEdit = () => {
   modalContainer.appendChild(modalWindow);
 
   return modalContainer
-
-
 }
