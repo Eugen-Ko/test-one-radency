@@ -1,3 +1,7 @@
 export const writeLocalStorage = (data) => {
-  localStorage.setItem('data', JSON.stringify(data));
+  try {
+    localStorage.setItem('data', JSON.stringify(data));
+  } catch (error) {
+    console.log(error.message);
+  }
 }

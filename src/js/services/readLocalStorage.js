@@ -1,3 +1,7 @@
 export const readLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('data'));
+  try {
+    return JSON.parse(localStorage.getItem('data'));
+  } catch (error) {
+    console.log(error.message);
+  }
 }
