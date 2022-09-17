@@ -2,7 +2,7 @@ import { readLocalStorage } from "./readLocalStorage";
 import { writeLocalStorage } from "./writeLocalStorage";
 import { calcStat } from "./calcStat";
 
-export const handlerToDo = (e) => {
+export const handlerTableToDo = (e) => {
   let currentEl;
   if (['svg', 'path'].includes(e.path[0].nodeName)) { currentEl = e.path[0].nodeName === 'path' ? e.target.parentNode : e.target }
   if (currentEl) actionSwitcher(currentEl.id, currentEl.attributes.key.value, currentEl.parentNode.childNodes[3].textContent);
@@ -18,7 +18,6 @@ const actionSwitcher = (id, action, category) => {
 
 const editEl = (id) => {
   const currentEl = readLocalStorage().find(el => el.id === id);
-  console.log(id);
 
   document.getElementById('modalTitle').setAttribute('key', `${id}`);
   document.getElementById('modalTitle').innerHTML = 'Edit record';
