@@ -18,6 +18,7 @@ const actionSwitcher = (id, action, category) => {
 
 const editEl = (id) => {
   const currentEl = readLocalStorage().find(el => el.id === id);
+  console.log(id);
 
   document.getElementById('modalTitle').setAttribute('key', `${id}`);
   document.getElementById('modalTitle').innerHTML = 'Edit record';

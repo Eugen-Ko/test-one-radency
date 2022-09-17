@@ -3,6 +3,7 @@ import { writeLocalStorage } from "./writeLocalStorage";
 import { path } from "../../assets/initWords";
 import { choicePath } from "../helpers/choicePath";
 import { calcStat } from "./calcStat";
+import { elementToDo } from "../components/elementToDo";
 
 export const handlerModalNewEdit = (e) => {
   e.preventDefault();
@@ -10,7 +11,6 @@ export const handlerModalNewEdit = (e) => {
   const key = document.getElementById('modalTitle').attributes.key.value;
   if (key === 'new') newRecord(data)
   else editRecord(data, key);
-
   closeModal();
 }
 
@@ -49,4 +49,29 @@ const editRecord = (data, key) => {
   document.getElementById(`category${key}`).innerHTML = data.category;
   document.getElementById(`content${key}`).innerHTML = data.content;
   document.getElementById(`expDate${key}`).innerHTML = data.date ? `${data.date}, ` : '';
+}
+
+const newRecord = (data) => {
+  const newRecord = {
+    name: data.name ? data.name : '',
+    createDate: new Date().toLocaleString('en-US', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }),
+    category: data.category ? data.category : '',
+    content: data.content ? data.content : '',
+    expDate: data.expDate ? data.expDate : '',
+    isArch: false,
+    id: String(Date.now()),
+  }
+
+  const currentList = readLocalStorage();
+  currentList.push(newRecord);
+  writeLocalStorage(currentList);
+  document.getElementById('tableTodo').innerHTML += elementToDo(newRecord).outerHTML;
+
+  const newStat = calcStat(currentList).find(el => el.category === data.category).active
+  document.getElementById(`${data.category}_active`).innerHTML = `${newStat}`
+
 }
