@@ -30,6 +30,7 @@ const editRecord = (data, key) => {
 }
 
 const newRecord = (data) => {
+  console.log(data);
   const newRecord = {
     name: data.name ? data.name : '',
     createDate: new Date().toLocaleString('en-US', {
@@ -39,7 +40,7 @@ const newRecord = (data) => {
     }),
     category: data.category ? data.category : '',
     content: data.content ? data.content : '',
-    expDate: data.expDate ? data.expDate : '',
+    expDate: data.date ? data.date : '',
     isArch: false,
     id: String(Date.now()),
   }

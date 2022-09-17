@@ -1,6 +1,7 @@
 import { createEl } from '../helpers/createEl';
 import { path } from '../../assets/initWords';
 import { createCategorySVG } from '../helpers/createCategorySVG';
+import { regStr } from '../../assets/initWords';
 
 export const elementToDo = ({ name, createDate, category, content, expDate, id }) => {
 
@@ -13,11 +14,22 @@ export const elementToDo = ({ name, createDate, category, content, expDate, id }
     }
   }
 
+  const checkDate = (content) => {
+    const res = Array.from(content.matchAll(regStr))
+    return res.length ? res.map(el => el[0]).join(', ') : '';
+  }
+
   const columns = [name, createDate, category, content, expDate].map((el, index) => {
     const temp = createEl({
       tagName: 'p', className: `elementText ${index === 0 ? 'elementText__title' : ''}`, attributes: { id: `${createId(index)}${id}` }
     });
-    temp.insertAdjacentHTML('beforeend', el);
+    if (index !== 4) { temp.insertAdjacentHTML('beforeend', el) }
+    else {
+      if (expDate) {
+        temp.insertAdjacentHTML('beforeend', el)
+      }
+      else { temp.insertAdjacentHTML('beforeend', checkDate(content)) }
+    }
     return temp.outerHTML
   }).join('');
 
