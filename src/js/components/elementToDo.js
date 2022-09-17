@@ -4,9 +4,18 @@ import { createCategorySVG } from '../helpers/createCategorySVG';
 
 export const elementToDo = ({ name, createDate, category, content, expDate, id }) => {
 
+  const createId = (index) => {
+    switch (index) {
+      case 0: return 'name'
+      case 2: return 'category'
+      case 3: return 'content'
+      case 4: return 'expDate'
+    }
+  }
+
   const columns = [name, createDate, category, content, expDate].map((el, index) => {
     const temp = createEl({
-      tagName: 'p', className: `elementText ${index === 0 ? 'elementText__title' : ''}`
+      tagName: 'p', className: `elementText ${index === 0 ? 'elementText__title' : ''}`, attributes: { id: `${createId(index)}${id}` }
     });
     temp.insertAdjacentHTML('beforeend', el);
     return temp.outerHTML
@@ -19,7 +28,7 @@ export const elementToDo = ({ name, createDate, category, content, expDate, id }
   }).join('');
 
   const elToDo = createEl({ tagName: 'div', className: 'headerContainer headerContainer__el', attributes: { id: `div${id}` } });
-  elToDo.insertAdjacentHTML('beforeend', [createCategorySVG(category).outerHTML, columns, icons].join(''));
+  elToDo.insertAdjacentHTML('beforeend', [createCategorySVG(category, id).outerHTML, columns, icons].join(''));
 
   return elToDo
 }

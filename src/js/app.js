@@ -6,6 +6,7 @@ import { button } from './components/button';
 import { headerStat } from './components/headerStat';
 import { listStat } from './components/listStat';
 import { initialLocalStorage } from './services/initialLocalStorage';
+import { modalNewEdit } from './components/modalNewEdit';
 
 export const app = () => {
 
@@ -17,7 +18,7 @@ export const app = () => {
   tableStat.insertAdjacentHTML('beforeend', listStat());
 
   const rootEl = document.getElementById('root');
-  rootEl.insertAdjacentHTML('afterbegin', [headerToDo().outerHTML, tableToDo.outerHTML, button().outerHTML, headerStat().outerHTML, tableStat.outerHTML].join(''));
+  rootEl.append(headerToDo(), tableToDo, button(), headerStat(), tableStat, modalNewEdit());
 
   return rootEl;
 }

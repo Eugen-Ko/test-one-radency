@@ -1,6 +1,5 @@
-import { path } from '../../assets/initWords';
+import { path, headerToDoColumn } from '../../assets/initWords';
 import { createEl } from '../helpers/createEl';
-import { headerToDoColumn } from '../../assets/initWords';
 
 export const headerToDo = () => {
   const headerToDoContainer = createEl({ tagName: 'div', className: 'headerContainer' });
