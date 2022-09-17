@@ -2,6 +2,7 @@ import { handlerTableToDo } from './handlerTableToDo';
 import { handlerModalNewEdit, handlerCancelNewEdit } from './handlerModalNewEdit';
 import { handlerCreateBtn } from './handlerCreateBtn';
 import { handlerTableStat, handlerCloseArch, handlerModalArchList } from './handlerTableStat';
+import { handlerHeaderTodo } from './handlerHeaderTodo';
 
 export const createListeners = () => {
 
@@ -13,6 +14,7 @@ export const createListeners = () => {
     btnCancelNewEdit: document.getElementById('btnCancelNewEdit'),
     btnCloseArch: document.getElementById('btnCloseArch'),
     modalArchList: document.getElementById('modalArchList'),
+    headerToDo: document.getElementById('headerToDo'),
   }
 
   refs.tableToDo.addEventListener('click', handlerTableToDo, false);
@@ -22,4 +24,5 @@ export const createListeners = () => {
   refs.tableStat.addEventListener('click', handlerTableStat, false);
   refs.btnCloseArch.addEventListener('click', handlerCloseArch, false);
   refs.modalArchList.addEventListener('click', handlerModalArchList, false);
+  refs.headerToDo.addEventListener('click', handlerHeaderTodo, false);
 }

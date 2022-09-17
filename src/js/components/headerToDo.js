@@ -2,7 +2,7 @@ import { path, headerToDoColumn } from '../../assets/initWords';
 import { createEl } from '../helpers/createEl';
 
 export const headerToDo = () => {
-  const headerToDoContainer = createEl({ tagName: 'div', className: 'headerContainer' });
+  const headerToDoContainer = createEl({ tagName: 'div', className: 'headerContainer', attributes: { id: 'headerToDo' } });
 
   const columns = headerToDoColumn.map(el => {
     const temp = createEl({ tagName: 'p', className: 'headerText' });
