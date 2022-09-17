@@ -7,6 +7,7 @@ import { headerStat } from './components/headerStat';
 import { listStat } from './components/listStat';
 import { initialLocalStorage } from './services/initialLocalStorage';
 import { modalNewEdit } from './components/modalNewEdit';
+import { modalArch } from './components/modalArch';
 
 export const app = () => {
 
@@ -18,7 +19,7 @@ export const app = () => {
   tableStat.insertAdjacentHTML('beforeend', listStat());
 
   const rootEl = document.getElementById('root');
-  rootEl.append(headerToDo(), tableToDo, button(), headerStat(), tableStat, modalNewEdit());
+  rootEl.append(headerToDo(), tableToDo, button(), headerStat(), tableStat, modalNewEdit(), modalArch());
 
   return rootEl;
 }

@@ -1,18 +1,18 @@
 import { readLocalStorage } from "./readLocalStorage";
 import { writeLocalStorage } from "./writeLocalStorage";
-import { calcStat } from "./calcStat";
+import { refreshTable } from "../helpers/refreshTable";
 
 export const handlerTableToDo = (e) => {
   let currentEl;
   if (['svg', 'path'].includes(e.path[0].nodeName)) { currentEl = e.path[0].nodeName === 'path' ? e.target.parentNode : e.target }
-  if (currentEl) actionSwitcher(currentEl.id, currentEl.attributes.key.value, currentEl.parentNode.childNodes[3].textContent);
+  if (currentEl) actionSwitcher(currentEl.id, currentEl.attributes.key.value);
 }
 
-const actionSwitcher = (id, action, category) => {
+const actionSwitcher = (id, action) => {
   switch (action) {
     case 'edit': editEl(id); break;
-    case 'archive': archiveEl(id, category); break;
-    case 'delete': deleteEl(id, category); break;
+    case 'archive': archiveEl(id); break;
+    case 'delete': deleteEl(id); break;
   }
 }
 
@@ -31,25 +31,14 @@ const editEl = (id) => {
   modal.classList.remove('modal__hidden');
 }
 
-const archiveEl = (id, category) => {
+const archiveEl = (id) => {
   const newList = readLocalStorage().map(el => el.id === id ? { ...el, isArch: true } : el)
-  const newStat = calcStat(newList).find(el => el.category === category)
-
-  if (newStat.archive) { document.getElementById(`${category}_archive`).classList.add('activeArch') }
-
-  document.getElementById(`${category}_archive`).innerHTML = `${newStat.archive}`
-  document.getElementById(`${category}_active`).innerHTML = `${newStat.active}`
-  document.getElementById(`div${id}`).remove();
-
   writeLocalStorage(newList);
+  refreshTable();
 }
 
-const deleteEl = (id, category) => {
+const deleteEl = (id) => {
   const currentList = readLocalStorage().filter(item => item.id !== id);
-  const newStat = calcStat(currentList).find(el => el.category === category).active
-
-  document.getElementById(`${category}_active`).innerHTML = `${newStat}`
-  document.getElementById(`div${id}`).remove();
-
   writeLocalStorage(currentList);
+  refreshTable();
 }
