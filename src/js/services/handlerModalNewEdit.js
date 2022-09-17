@@ -48,5 +48,5 @@ const editRecord = (data, key) => {
   document.getElementById(`name${key}`).innerHTML = data.name;
   document.getElementById(`category${key}`).innerHTML = data.category;
   document.getElementById(`content${key}`).innerHTML = data.content;
-  document.getElementById(`expDate${key}`).innerHTML += data.date ? `${data.date}, ` : '';
+  document.getElementById(`expDate${key}`).innerHTML = data.date ? `${data.date}, ` : '';
 }
