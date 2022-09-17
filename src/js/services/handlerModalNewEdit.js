@@ -73,5 +73,4 @@ const newRecord = (data) => {
 
   const newStat = calcStat(currentList).find(el => el.category === data.category).active
   document.getElementById(`${data.category}_active`).innerHTML = `${newStat}`
-
 }
